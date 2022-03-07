@@ -20,12 +20,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/login")
+    /*@GetMapping("/login")
     public String login() {
         return "login";
-    }
+    }*/
 
-    /*GetMapping("/user")
+    @GetMapping("/user")
     public Object getLoggedUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication.getPrincipal();
@@ -36,16 +36,15 @@ public class UserController {
         return userService.getAll();
     }
 
-    /*@GetMapping("/users/{username}")
-    public User getUserByUserName(@PathVariable String name) {
+    @GetMapping("/users/{ID}")
+    public User getUserByID(@PathVariable String ID) {
+        return userService.getUserByID(Long.valueOf(ID));
+    }
 
-        //return userService.getUserByID(ID);
-    }*/
-
-    /*@PostMapping("/register")
+    @PostMapping("/register")
     public String register(@RequestBody RegisterUserRequest user) {
         return userService.register(user);
-    }*/
+    }
 }
 
 
