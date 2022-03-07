@@ -1,9 +1,24 @@
 package csaba79coder.webspringcaptcha.model;
 
-public enum UserAuthority {
+import lombok.*;
 
-    CREATE,
-    READ,
-    UPDATE,
-    DELETE
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "authorities")
+public class UserAuthority implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String username;
+
+    private String authority;
 }

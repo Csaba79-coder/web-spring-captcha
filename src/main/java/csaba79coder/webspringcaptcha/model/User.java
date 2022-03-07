@@ -36,5 +36,5 @@ public class User {
     private Role role;
     // or if they have more roles, store it in a list!!!
 
-    private boolean enabled;
+    private boolean enable;
 }

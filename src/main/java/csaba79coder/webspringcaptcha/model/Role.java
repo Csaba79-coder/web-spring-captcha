@@ -1,14 +1,17 @@
 package csaba79coder.webspringcaptcha.model;
 
+import lombok.Getter;
+
+@Getter
 public enum Role {
 
-    ROLE_USER(UserAuthority.READ),
-    ROLE_ADMIN(UserAuthority.CREATE, UserAuthority.READ, UserAuthority.UPDATE, UserAuthority.DELETE);
+    ROLE_USER(RoleType.READ),
+    ROLE_ADMIN(RoleType.CREATE, RoleType.READ, RoleType.UPDATE, RoleType.DELETE);
 
 
-    public final UserAuthority[] AUTHS;
+    public final RoleType[] AUTHS;
 
-    Role(UserAuthority... auths) {
+    Role(RoleType... auths) {
         AUTHS = auths;
     }
 }
