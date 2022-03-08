@@ -18,7 +18,9 @@ public class UserAuthority implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false, columnDefinition = "varchar(255)")
     private String username;
 
-    private String authority;
+    @Enumerated(EnumType.STRING)
+    private Role authority;
 }

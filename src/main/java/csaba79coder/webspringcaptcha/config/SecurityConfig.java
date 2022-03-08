@@ -1,5 +1,6 @@
 package csaba79coder.webspringcaptcha.config;
 
+import csaba79coder.webspringcaptcha.model.Role;
 import csaba79coder.webspringcaptcha.model.User;
 import csaba79coder.webspringcaptcha.model.UserAuthority;
 import csaba79coder.webspringcaptcha.repository.UserAuthorityRepository;
@@ -18,7 +19,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
 
-import javax.sql.DataSource;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 @Configuration
 @EnableWebSecurity
@@ -56,14 +58,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                                UserAuthorityRepository userAuthorityRepository) {
         return args -> {
             userRepository.save(User.builder()
-                    .nickName("admin")
+                    .username("admin")
+                    .email("test@test.com")
+                    .registrationDate(Timestamp.from(Instant.now()))
                     .password(new BCryptPasswordEncoder().encode("password"))
+                    .role(Role.ROLE_ADMIN)
                     .enable(true)
                     .build()
             );
             userAuthorityRepository.save(UserAuthority.builder()
                     .username("admin")
-                    .authority("ROLE_ADMIN")
+                    .authority(Role.ROLE_ADMIN)
                     .build()
             );
         };

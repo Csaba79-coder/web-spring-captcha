@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Getter
 @Setter
@@ -21,13 +22,13 @@ public class User {
     private Long ID;
 
     @Column(unique = true, nullable = false, columnDefinition = "varchar(255)")
-    private String nickName;
+    private String username;
 
     @Column(unique = true, nullable = false, columnDefinition = "varchar(255)")
     private String email;
 
     @CreationTimestamp
-    Date registrationDate;
+    Timestamp registrationDate;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
