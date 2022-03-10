@@ -23,6 +23,6 @@ class UserAuthorityTest {
         userAuthority.setAuthority(Role.ROLE_ADMIN);
         assertNotNull(userAuthorityRepository.findAll());
         userAuthorityRepository.save(userAuthority);
-        assertEquals(1, userAuthorityRepository.findAll().size());
+        assertEquals(2, userAuthorityRepository.findAll().size());
     }
 }
