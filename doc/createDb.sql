@@ -1,0 +1,1 @@
+CREATE DATABASE webcaptcha_db;
